@@ -1,69 +1,49 @@
-﻿var number = 456625545;
-var numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+﻿using ChallengeApp;
 
-var counter0 = 0;
-var counter1 = 0;
-var counter2 = 0;
-var counter3 = 0;
-var counter4 = 0;
-var counter5 = 0;
-var counter6 = 0;
-var counter7 = 0;
-var counter8 = 0;
-var counter9 = 0;
+Employee user1 = new Employee("Monika", "Ryś", 30);
+Employee user2 = new Employee("Adam", "Stokowski", 32);
+Employee user3 = new Employee("Tom", "Cruse", 34);
+Employee user4 = new Employee("Bob", "Marley", 37);
 
-foreach (char letter in letters)
+user1.AddScore(5);
+user1.AddScore(2);
+user1.AddScore(4);
+user1.AddScore(5);
+user1.AddScore(1);
+
+user2.AddScore(4);
+user2.AddScore(8);
+user2.AddScore(7);
+user2.AddScore(3);
+user2.AddScore(9);
+
+user3.AddScore(6);
+user3.AddScore(3);
+user3.AddScore(1);
+user3.AddScore(4);
+user3.AddScore(5);
+
+user4.AddScore(8);
+user4.AddScore(9);
+user4.AddScore(7);
+user4.AddScore(1);
+user4.AddScore(2);
+
+List<Employee> users = new List<Employee>()
 {
-    if(letter == '0')
+    user1, user2, user3, user4
+};
+
+int maxResult = -1;
+Employee userWithMaxResult = null;
+
+foreach(var user in users)
+{
+    if(user.Resault > maxResult)
     {
-        counter0++;
+        userWithMaxResult = user;
+        maxResult = user.Resault;
     }
-    else if(letter == '1')
-    {
-        counter1++;
-    }
-    else if (letter == '2')
-    {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
-    }
+    
 }
-Console.WriteLine("liczba " + number + " zawiera");
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("5 => " + counter5);
-Console.WriteLine("6 => " + counter6);
-Console.WriteLine("7 => " + counter7);
-Console.WriteLine("8 => " + counter8);
-Console.WriteLine("9 => " + counter9);
+Console.WriteLine(userWithMaxResult.Name +" "+ userWithMaxResult.Surname +" "+ userWithMaxResult.Age +" lat, " + " Jego ocena była najwyższa " + userWithMaxResult.Resault );
